@@ -422,7 +422,7 @@ while not done:
     elif gameState >= 0 and gameState <= 2:
         infoBar()
         
-        ai.make_random_move()
+        ai.ai.make_random_move()
         ai.update()
         ai.render()
     
