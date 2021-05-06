@@ -49,7 +49,9 @@ def add_knowledge(self, cell, count):
                     new_knowledge_cells.append(i, j)
     
     if len(new_knowledge_cells) != 0:
-        self.knowledge.append(self.cells = set(cells), self.count = count)
+        self.cells = set(self.cells)
+        self.count = count
+        self.knowledge.append(self.cells, self.count)
     
     while self.minify_knowledge() !=  self.knowledge:
         pass
@@ -71,8 +73,10 @@ def add_knowledge(self, cell, count):
     print("------------------------------------------------------------------")
 
 def mark_safe_move(self):
-    # TODO
-    pass
+    if len(self.safes) > 0:
+        return self.safes.pop()
+    else:
+        return None
 
 def make_random_move(self):
     freeSets = self.all_possible_cells - self.moves_made - self.mines
@@ -97,3 +101,6 @@ def minify_knowledge(self):
             self.knowledge.remove(i)
             for j in known_mines.union(self.mines):
                 self.mark_mine(mine)
+
+def getFlags(self):
+    return self.mines
