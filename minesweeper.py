@@ -396,6 +396,7 @@ while not done:
 
 pygame.quit()
 
+# The AI version
 ai = Game(5,5,5)
 
 while not done:
@@ -422,7 +423,7 @@ while not done:
     elif gameState >= 0 and gameState <= 2:
         infoBar()
         
-        ai.ai.make_random_move()
+        ai.make_random_move()
         ai.update()
         ai.render()
     

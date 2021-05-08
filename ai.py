@@ -1,4 +1,5 @@
 # this is where the files for the ai stuff will go
+import random
 
 def __init__(self, height=5, width=5):
     
