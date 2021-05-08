@@ -1,4 +1,5 @@
 import random
+import ai
 import pygame
 pygame.init()
 
@@ -388,6 +389,43 @@ while not done:
         
         game.update()
         game.render()
+    
+    pygame.display.flip()
+    
+    clock.tick(60)
+
+pygame.quit()
+
+# The AI version
+ai = Game(5,5,5)
+
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_state = event.button
+            pygame.mouse.set_pos(mouse_x,mouse_y + 1)
+        else:
+            mouse_state = 0
+    
+    mouse_x = pygame.mouse.get_pos()[0]
+    mouse_y = pygame.mouse.get_pos()[1]
+    
+    screen.fill(WHITE)
+    
+    if gameState == -1:
+        menu()
+    
+    elif gameState == -2:
+        custom()
+    
+    elif gameState >= 0 and gameState <= 2:
+        infoBar()
+        
+        ai.make_random_move()
+        ai.update()
+        ai.render()
     
     pygame.display.flip()
     
